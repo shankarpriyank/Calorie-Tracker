@@ -51,4 +51,3 @@ fun CalorieTrackerTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Co
         )
     }
 }
-

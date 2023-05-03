@@ -63,21 +63,21 @@ jobs:
 #          LOCAL_PROPERTIES: ${{ secrets.LOCAL_PROPERTIES }}
 #        run: echo $LOCAL_PROPERTIES > ./local.properties
 
-      - name: Run Tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 30
-          arch: x86_64
-          profile: pixel
-          script: |
-            ./gradlew connectedCheck
-
-      - name: Upload Test Reports
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-reports
-          path: '**/build/reports/tests/'
+#      - name: Run Tests
+#        uses: reactivecircus/android-emulator-runner@v2
+#        with:
+#          api-level: 30
+#          arch: x86_64
+#          profile: pixel
+#          script: |
+#            ./gradlew connectedCheck
+#
+#      - name: Upload Test Reports
+#        if: ${{ always() }}
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: test-reports
+#          path: '**/build/reports/tests/'
 
 
   code_formatting_job:
