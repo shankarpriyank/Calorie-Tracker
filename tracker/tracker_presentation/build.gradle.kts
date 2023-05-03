@@ -8,4 +8,6 @@ dependencies {
     "implementation"(project(Modules.trackerDomain))
 
     "implementation"(Coil.coilCompose)
+ "implementation"(project(Modules.coreUi))
+
 }
