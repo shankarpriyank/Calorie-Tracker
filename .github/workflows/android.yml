@@ -92,14 +92,14 @@ jobs:
         run : chmod +x gradlew
 
       - name: Run ktlint check
-        run: ./gradlew ktlintCheck --continue
+        run: ./gradlew check --continue
 
-      - name: Upload ktlint Reports
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: ktlint-report
-          path: '**/build/reports/ktlint'
+#      - name: Upload ktlint Reports
+#        if: ${{ always() }}
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: ktlint-report
+#          path: '**/build/reports/ktlint'
 
 
   lint_job:
