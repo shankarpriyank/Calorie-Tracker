@@ -34,7 +34,7 @@ fun GoalScreen(
 ) {
     val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
-        viewModel.uiEvent.collect {event ->
+        viewModel.uiEvent.collect { event ->
             when (event) {
                 is UiEvent.Navigate -> onNavigate(event)
                 else -> Unit

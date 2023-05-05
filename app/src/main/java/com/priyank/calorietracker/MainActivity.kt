@@ -73,11 +73,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Route.ACTIVITY) {
                             ActivityScreen(onNavigate = navController::cnavigate)
-
                         }
                         composable(Route.GOAL) {
                             GoalScreen(onNavigate = navController::cnavigate)
-
                         }
 
                         composable(Route.TRACKER_OVERVIEW) {

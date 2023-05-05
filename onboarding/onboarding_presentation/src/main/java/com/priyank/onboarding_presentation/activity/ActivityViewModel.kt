@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ActivityViewModel @Inject constructor(
     private val preferences: Preferences
-): ViewModel() {
+) : ViewModel() {
 
     var selectedActivityLevel by mutableStateOf<ActivityLevel>(
         ActivityLevel.Medium

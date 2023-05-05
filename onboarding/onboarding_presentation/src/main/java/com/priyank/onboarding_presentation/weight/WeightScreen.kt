@@ -24,7 +24,6 @@ import com.priyank.onboarding_presentation.components.UnitTextField
 import core.R
 import kotlinx.coroutines.flow.collect
 
-
 @Composable
 fun WeightScreen(
     scaffoldState: ScaffoldState,
@@ -34,7 +33,7 @@ fun WeightScreen(
     val spacing = LocalSpacing.current
     val context = LocalContext.current
     LaunchedEffect(key1 = true) {
-        viewModel.uiEvent.collect {event ->
+        viewModel.uiEvent.collect { event ->
             when (event) {
                 is UiEvent.Navigate -> onNavigate(event)
                 is UiEvent.ShowSnackbar -> {

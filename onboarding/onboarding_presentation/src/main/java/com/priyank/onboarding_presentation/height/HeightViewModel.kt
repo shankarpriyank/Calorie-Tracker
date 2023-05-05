@@ -10,19 +10,18 @@ import com.priyank.core.domain.use_case.FilterOutDigits
 import com.priyank.core.navigation.Route
 import com.priyank.core.util.UiEvent
 import com.priyank.core.util.UiText
-import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 import core.R
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
-
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class HeightViewModel @Inject constructor(
     private val preferences: Preferences,
     private val filterOutDigits: FilterOutDigits
-): ViewModel() {
+) : ViewModel() {
 
     var height by mutableStateOf("180")
         private set
@@ -31,7 +30,7 @@ class HeightViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     fun onHeightEnter(height: String) {
-        if(height.length <= 3) {
+        if (height.length <= 3) {
             this.height = filterOutDigits(height)
         }
     }

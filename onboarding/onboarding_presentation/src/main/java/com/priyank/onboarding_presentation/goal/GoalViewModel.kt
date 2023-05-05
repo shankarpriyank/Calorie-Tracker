@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class GoalViewModel @Inject constructor(
     private val preferences: Preferences
-): ViewModel() {
+) : ViewModel() {
 
     var selectedGoal by mutableStateOf<GoalType>(
         GoalType.KeepWeight
