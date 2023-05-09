@@ -7,8 +7,15 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
+import com.priyank.coreui.BrightGreen
+import com.priyank.coreui.DarkGray
+import com.priyank.coreui.DarkGreen
 import com.priyank.coreui.Dimensions
+import com.priyank.coreui.LightGray
 import com.priyank.coreui.LocalSpacing
+import com.priyank.coreui.MediumGray
+import com.priyank.coreui.Orange
+import com.priyank.coreui.TextWhite
 
 private val DarkColorPalette = darkColors(
     primary = BrightGreen,

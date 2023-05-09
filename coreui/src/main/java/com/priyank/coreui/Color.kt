@@ -1,4 +1,4 @@
-package com.priyank.calorietracker.ui.theme
+package com.priyank.coreui
 
 import androidx.compose.ui.graphics.Color
 
