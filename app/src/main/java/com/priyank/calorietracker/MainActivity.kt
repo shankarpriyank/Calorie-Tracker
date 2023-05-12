@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.priyank.calorietracker.navigation.cnavigate
 import com.priyank.calorietracker.ui.theme.CalorieTrackerTheme
+import com.priyank.core.domain.Preferences
 import com.priyank.core.navigation.Route
 import com.priyank.onboarding_presentation.activity.ActivityScreen
 import com.priyank.onboarding_presentation.age.AgeScreen
@@ -31,12 +32,20 @@ import com.priyank.onboarding_presentation.welcome.WelcomeScreen
 import com.priyank.tracker_presentation.search.SearchScreen
 import com.priyank.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalComposeUiApi::class)
+
+    @Inject
+    lateinit var preferences: Preferences
+    @OptIn(ExperimentalComposeUiApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+        val shouldShowOnboarding = preferences.loadShouldShowOnboarding()
+
         setContent {
             CalorieTrackerTheme {
                 val scaffoldState = rememberScaffoldState()
@@ -50,7 +59,9 @@ class MainActivity : ComponentActivity() {
                     NavHost(
                         modifier = Modifier.padding(it),
                         navController = navController,
-                        startDestination = Route.WELCOME
+                        startDestination = if (shouldShowOnboarding) {
+                            Route.WELCOME
+                        } else Route.TRACKER_OVERVIEW
                     ) {
                         composable(Route.WELCOME) {
                             WelcomeScreen(onNavigate = navController::cnavigate)
